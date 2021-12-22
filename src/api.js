@@ -63,7 +63,7 @@ export let getEvents = async (events) => {
 
   if (token) {
     removeQuery();
-    let url = 'https://56a0p7pzx8.execute-api.us-west-1.amazonaws.com/dev/api/token/' + token;
+    let url = 'https://56a0p7pzx8.execute-api.us-west-1.amazonaws.com/dev/api/get-events' + '/' + token;
     let result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -100,7 +100,7 @@ export let getAccessToken = async () => {
 let getToken = async (code) => {
   let encodeCode = encodeURIComponent(code);
   let { access_token } = await fetch(
-    'https://56a0p7pzx8.execute-api.us-west-1.amazonaws.com/dev/api/token/' + encodeCode
+    'https://56a0p7pzx8.execute-api.us-west-1.amazonaws.com/dev/api/token' + '/' + encodeCode
   )
     .then((res) => {
       return res.json();
