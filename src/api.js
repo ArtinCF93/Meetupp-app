@@ -48,16 +48,16 @@ export let extractLocations = (events) => {
 export let getEvents = async (events) => {
   NProgress.start();
 
-  if (window.location.href.startsWith("http://localhost")) {
-    NProgress.done();
-    return mockData;
-  }
+  // if (window.location.href.startsWith("http://localhost")) {
+  //   NProgress.done();
+  //   return mockData;
+  // }
 
-  if (!navigator.onLine) {
-    const data = localStorage.getItem("lastEvents");
-    NProgress.done();
-    return data ? JSON.parse(events).events : [];;
-  }
+  // if (!navigator.onLine) {
+  //   const data = localStorage.getItem("lastEvents");
+  //   NProgress.done();
+  //   return data ? JSON.parse(events).events : [];;
+  // }
 
   let token = await getAccessToken();
 

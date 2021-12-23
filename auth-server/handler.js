@@ -47,6 +47,14 @@ module.exports.getAuthURL = async() => {
 };
 
 
+
+
+// The below object is what is passed as a test function event in lambda for getAccessToken
+// {
+//   “pathParameters”: {
+//      “code”: “https://www.googleapis.com/auth/calendar.readonly”
+//     }
+// }
 module.exports.getAccessToken = async(event) => {
   let oAuth2Client = new google.auth.OAuth2(
     client_id,
@@ -84,6 +92,13 @@ module.exports.getAccessToken = async(event) => {
 }
 
 
+
+// The below object is what is passed as a test function event in lambda for getCalendarEvents
+// pass; {
+//   “pathParameters”: {
+//      “access_token”: “access_token”
+//     }
+// }
 module.exports.getCalendarEvents = async(event) => {
   let oAuth2Client = new google.auth.OAuth2(
     client_id,
